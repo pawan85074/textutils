@@ -36,9 +36,9 @@ Navbar.propTypes={
   page:propTypes.string.isRequired
 }
 
-Navbar.defaultProps = {
-  title: 'pawanSite',
-  page: 'pawanPage'
-}
+// Navbar.defaultProps = {
+//   title: 'pawanSite',
+//   page: 'pawanPage'
+// }
 
 export default Navbar

@@ -1,17 +1,34 @@
-import React from 'react'
+import React,{useState} from 'react';
 import Navbar from '../components/Navbar';
 import TextBody from './TextBody';
+
 function Homepage() {
+  const [mode, setMode]=useState("tertiary");
+  const [titleMode,setTitleMode]=useState('Disable darkMode')
+
+  const toggleMode=()=>{
+    if(mode==='tertiary')
+    {
+      setMode('dark');
+      setTitleMode('Enable darkMode');
+      document.body.style.backgroundColor='rgb(40, 38, 49)'
+    }
+    else
+    {
+      setMode('tertiary');
+      setTitleMode('Disable darkMode');
+      document.body.style.backgroundColor='white'
+    }
+  }
   return (
    <>
-  <section className="bg-secondary h">
-  <Navbar title="TextUtils" page="About"/>
+  
+  <Navbar title="TextUtils" page="About" handleMode={toggleMode} mode={mode} darkMode={titleMode}/>
    <div className='container'>
-   <TextBody/>
+   <TextBody mode={mode}/>
    </div>
-  </section>
    </>
   );
-}
+};
 
 export default Homepage;

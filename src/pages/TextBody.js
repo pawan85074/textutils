@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-export default function TextBody() {
+export default function TextBody(props) {
     const handleUpperCase=()=>{
         let newText=text.toUpperCase();
         setText(newText)
@@ -36,9 +36,9 @@ export default function TextBody() {
         <button type="button" className="btn btn-primary mx-2" onClick={handleClear}>clear</button>
         <button type="button" className="btn btn-primary mx-2" onClick={handleCopyText}>Copy</button>
         </div>
-        <div className='container my-3'>
+        <div className={`container my-3 text-${props.mode==='tertiary'?'dark':'light'}`}>
          <h2 >Your Text Summary</h2>
-         <p className='text-light font-weight-bold pb-3'>Total words : {text.split(" ").length} <br/> Total Characters : {text.length} <br/>Read Time : {0.08*text.split(" ").length} min</p>
+         <p className="font-weight-bold pb-3">Total words : {text.split(" ").length} <br/> Total Characters : {text.length} <br/>Read Time : {0.08*text.split(" ").length} min</p>
         </div>
     </div>
   )
